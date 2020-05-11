@@ -1,4 +1,5 @@
 ﻿
+using Qademli.Models.DatabaseModel;
 using System.Linq;
 
 
@@ -10,22 +11,43 @@ namespace Qademli.Utility
         {
             context.Database.EnsureCreated();
 
-            // Look for any students.
-            //if (context.User.Any())
-            //{
-            //    return;   // DB has been seeded
-            //}
+            // Look for any Users.
+            if (context.User.Any())
+            {
+                return;   // DB has been seeded
+            }
 
-            //var users = new User[]
-            //{
-            //    new User{ Email="admin@xyz.com",Password="admin",Role="Admin"},
-            //    new User{ Email="adnan@xyz.com",Password="123",Role="Customer"},
-            //};
-            //foreach (User u in users)
-            //{
-            //    context.User.Add(u);
-            //}
-            //context.SaveChanges();
+            var users = new User[]
+            {
+                new User{ FirstName="Admin",Email="admin@qademli.com",Password="admin",Role="Admin"},
+                new User{FirstName="Raja",MiddleName="Adnan",LastName="Shan", Email="adnan@xyz.com",Password="123",Role="User"},
+            };
+            foreach (User u in users)
+            {
+                context.User.Add(u);
+            }
+            context.SaveChanges();
+
+
+            // Look for any Users.
+            if (context.Topic.Any())
+            {
+                return;   // DB has been seeded
+            }
+
+            var topics = new Topic[]
+            {
+                new Topic{ Name="University"},
+                new Topic{Name="Learning Center"},
+                new Topic{Name="IELTS"},
+                new Topic{Name="TOEFL"},
+                new Topic{Name="Visa"},
+            };
+            foreach (Topic t in topics)
+            {
+                context.Topic.Add(t);
+            }
+            context.SaveChanges();
         }
     }
 }

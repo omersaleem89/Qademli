@@ -13,7 +13,7 @@ namespace Qademli.Models.DatabaseModel
         public int ID { get; set; }
         public int UserID { get; set; }
         public int GoalID { get; set; }
-        public int TopicID { get; set; }
+        public int? TopicID { get; set; }
         public int StatusID { get; set; }
         public string Comment { get; set; }
         public DateTime Date { get; set; }
@@ -24,7 +24,7 @@ namespace Qademli.Models.DatabaseModel
         [ForeignKey("GoalID")]
         public Goal Goal { get; set; }
         [ForeignKey("TopicID")]
-        public Topic Topic { get; set; }
+        public virtual Topic Topic { get; set; }
         [ForeignKey("StatusID")]
         public ApplicationStatus ApplicationStatus { get; set; }
     }
