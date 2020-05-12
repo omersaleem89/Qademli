@@ -12,6 +12,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
+using Newtonsoft.Json.Serialization;
 
 namespace Qademli
 {
@@ -28,12 +29,12 @@ namespace Qademli
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews().AddNewtonsoftJson().AddRazorRuntimeCompilation();
-            services.AddRazorPages();
-            services.AddControllers().AddJsonOptions(options =>
+            services.AddControllers().AddNewtonsoftJson(options =>
             {
-                options.JsonSerializerOptions.PropertyNamingPolicy = null;
-                options.JsonSerializerOptions.DictionaryKeyPolicy = null;
+                options.SerializerSettings.ContractResolver = new DefaultContractResolver();
             });
+            services.AddRazorPages();
+
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                     .AddJwtBearer(options =>
                     {

@@ -36,7 +36,7 @@ namespace Qademli.AreasAPI.AccountApi.Controllers
                     return Ok(new { token = tokenString });
                 }
 
-                return NotFound();
+                return Forbid();
             }
             else
             {

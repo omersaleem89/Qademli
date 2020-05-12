@@ -22,6 +22,7 @@ namespace Qademli
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
 
             var claims = new[] {
+                new Claim(ClaimTypes.NameIdentifier,userInfo.ID.ToString()),
                 new Claim(ClaimTypes.Email, userInfo.Email),
                 new Claim(ClaimTypes.Role, userInfo.Role),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())

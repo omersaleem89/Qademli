@@ -15,6 +15,7 @@
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.3" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.3">
       <PrivateAssets>all</PrivateAssets>
@@ -25,9 +26,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="AreasAPI\AdminApi\Controllers\" />
     <Folder Include="AreasAPI\UserApi\Controllers\" />
     <Folder Include="Utility\" />
+    <Folder Include="wwwroot\Uploads\UserVisaDetail\I20Doc\" />
+    <Folder Include="wwwroot\Uploads\UserVisaDetail\Recommendations\" />
+    <Folder Include="wwwroot\Uploads\UserVisaDetail\VisaPermit\" />
+    <Folder Include="wwwroot\Uploads\UserVisaDetail\Passport\" />
   </ItemGroup>
 
 </Project>
