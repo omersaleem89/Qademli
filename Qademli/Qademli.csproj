@@ -27,6 +27,9 @@
 
   <ItemGroup>
     <Folder Include="Utility\" />
+    <Folder Include="wwwroot\Uploads\UserEducationDetail\HighSchoolDegree\" />
+    <Folder Include="wwwroot\Uploads\UserEducationDetail\MinistryofHigherEducationDoc\" />
+    <Folder Include="wwwroot\Uploads\UserEducationDetail\FinancialSupport\" />
     <Folder Include="wwwroot\Uploads\UserVisaDetail\I20Doc\" />
     <Folder Include="wwwroot\Uploads\UserVisaDetail\Recommendations\" />
     <Folder Include="wwwroot\Uploads\UserVisaDetail\VisaPermit\" />

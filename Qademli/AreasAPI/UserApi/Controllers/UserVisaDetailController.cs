@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Qademli.Models.DatabaseModel;
 using Qademli.Models.ViewModel;
-using Qademli.Utility;
 
 namespace Qademli.AreasAPI.UserApi.Controllers
 {
@@ -15,10 +14,12 @@ namespace Qademli.AreasAPI.UserApi.Controllers
     {
         private readonly ApplicationDBContext _context;
         private readonly IWebHostEnvironment _hostEnvironment;
+        private readonly UserVisaDetailVM viewModel;
         public UserVisaDetailController(ApplicationDBContext context, IWebHostEnvironment hostEnvironment)
         {
             _context = context;
             _hostEnvironment = hostEnvironment;
+            viewModel = new UserVisaDetailVM(_hostEnvironment);
         }
 
         // GET: api/UserVisaDetail/5
@@ -41,7 +42,7 @@ namespace Qademli.AreasAPI.UserApi.Controllers
         {
             
             UserVisaDetail userVisaDetail = await _context.UserVisaDetail.FirstOrDefaultAsync(x => x.UserID == obj.UserID);
-            userVisaDetail = new UserVisaDetailVM(_hostEnvironment).Update(userVisaDetail,obj);
+            userVisaDetail = viewModel.Update(userVisaDetail,obj);
             _context.Entry(userVisaDetail).State = EntityState.Modified;
 
             try
@@ -69,7 +70,7 @@ namespace Qademli.AreasAPI.UserApi.Controllers
         {
             if (ModelState.IsValid)
             {
-                UserVisaDetail userVisaDetail = new UserVisaDetailVM(_hostEnvironment).Add(obj);
+                UserVisaDetail userVisaDetail = viewModel.Add(obj);
                 _context.UserVisaDetail.Add(userVisaDetail);
                 await _context.SaveChangesAsync();
 
@@ -88,21 +89,7 @@ namespace Qademli.AreasAPI.UserApi.Controllers
             {
                 return NotFound();
             }
-            if (!string.IsNullOrEmpty(userVisaDetail.Passport)){
-                ImageHelper.DeleteImage(_hostEnvironment, @"Uploads\UserVisaDetail\Passport", userVisaDetail.Passport.Replace("/Uploads/UserVisaDetail/Passport/", ""));
-            }
-            if (!string.IsNullOrEmpty(userVisaDetail.Recommendations))
-            {
-                ImageHelper.DeleteImage(_hostEnvironment, @"Uploads\UserVisaDetail\Recommendations", userVisaDetail.Recommendations.Replace("/Uploads/UserVisaDetail/Recommendations/", ""));
-            }
-            if (!string.IsNullOrEmpty(userVisaDetail.VisaPermit))
-            {
-                ImageHelper.DeleteImage(_hostEnvironment, @"Uploads\UserVisaDetail\VisaPermit", userVisaDetail.VisaPermit.Replace("/Uploads/UserVisaDetail/VisaPermit/", ""));
-            }
-            if (!string.IsNullOrEmpty(userVisaDetail.I20Doc))
-            {
-                ImageHelper.DeleteImage(_hostEnvironment, @"Uploads\UserVisaDetail\I20Doc", userVisaDetail.I20Doc.Replace("/Uploads/UserVisaDetail/I20Doc/", ""));
-            }
+            viewModel.Delete(userVisaDetail);
 
             _context.UserVisaDetail.Remove(userVisaDetail);
             await _context.SaveChangesAsync();

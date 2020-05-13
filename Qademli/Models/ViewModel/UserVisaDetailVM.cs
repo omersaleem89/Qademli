@@ -3,11 +3,9 @@ using Microsoft.AspNetCore.Http;
 using Qademli.Models.DatabaseModel;
 using Qademli.Utility;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace Qademli.Models.ViewModel
 {
@@ -105,6 +103,26 @@ namespace Qademli.Models.ViewModel
                 }
             }
             return userVisaDetail;
+        }
+
+        public void Delete(UserVisaDetail userVisaDetail)
+        {
+            if (!string.IsNullOrEmpty(userVisaDetail.Passport))
+            {
+                ImageHelper.DeleteImage(_hostEnvironment, @"Uploads\UserVisaDetail\Passport", userVisaDetail.Passport.Replace("/Uploads/UserVisaDetail/Passport/", ""));
+            }
+            if (!string.IsNullOrEmpty(userVisaDetail.Recommendations))
+            {
+                ImageHelper.DeleteImage(_hostEnvironment, @"Uploads\UserVisaDetail\Recommendations", userVisaDetail.Recommendations.Replace("/Uploads/UserVisaDetail/Recommendations/", ""));
+            }
+            if (!string.IsNullOrEmpty(userVisaDetail.VisaPermit))
+            {
+                ImageHelper.DeleteImage(_hostEnvironment, @"Uploads\UserVisaDetail\VisaPermit", userVisaDetail.VisaPermit.Replace("/Uploads/UserVisaDetail/VisaPermit/", ""));
+            }
+            if (!string.IsNullOrEmpty(userVisaDetail.I20Doc))
+            {
+                ImageHelper.DeleteImage(_hostEnvironment, @"Uploads\UserVisaDetail\I20Doc", userVisaDetail.I20Doc.Replace("/Uploads/UserVisaDetail/I20Doc/", ""));
+            }
         }
     }
     public class UserVisaDetailUpsert
