@@ -12,7 +12,7 @@ using Qademli;
 using Qademli.Models.DatabaseModel;
 using Qademli.Utility;
 
-namespace Qademli.AreasAPI.UserApi
+namespace Qademli.AreasAPI.UserApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -84,10 +84,10 @@ namespace Qademli.AreasAPI.UserApi
             if (ModelState.IsValid)
             {
                 string[] permittedExtensions = { ".jpg", ".jpeg", ".png", ".pdf" };
-                var ext1 = Path.GetExtension(obj.Passport.FileName);
-                var ext2 = Path.GetExtension(obj.Recommendations.FileName);
-                var ext3 = Path.GetExtension(obj.I20Doc.FileName);
-                var ext4 = Path.GetExtension(obj.VisaPermit.FileName);
+                var ext1 = Path.GetExtension(obj.Passport.FileName).ToLower();
+                var ext2 = Path.GetExtension(obj.Recommendations.FileName).ToLower();
+                var ext3 = Path.GetExtension(obj.I20Doc.FileName).ToLower();
+                var ext4 = Path.GetExtension(obj.VisaPermit.FileName).ToLower();
                 if ((obj.Passport == null
                     || obj.Recommendations == null
                     || obj.I20Doc == null

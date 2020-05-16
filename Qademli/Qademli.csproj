@@ -26,7 +26,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="AreasAPI\UserApi\Controllers\" />
     <Folder Include="Utility\" />
     <Folder Include="wwwroot\Uploads\UserVisaDetail\I20Doc\" />
     <Folder Include="wwwroot\Uploads\UserVisaDetail\Recommendations\" />

@@ -33,7 +33,7 @@ namespace Qademli.AreasAPI.AccountApi.Controllers
                 {
                     var tokenString = new JWTHandler(_config).GenerateJSONWebToken(user);
                     HttpContext.Session.SetString("token", tokenString);
-                    return Ok(new { token = tokenString });
+                    return Ok(new { Token = tokenString });
                 }
 
                 return Forbid();
