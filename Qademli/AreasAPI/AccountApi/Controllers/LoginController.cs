@@ -22,7 +22,7 @@ namespace Qademli.AreasAPI.AccountApi.Controllers
 
         [AllowAnonymous]
         [HttpPost]
-        public IActionResult LoginUser(LoginVM login)
+        public IActionResult LoginUser([FromForm]LoginVM login)
         {
             if (ModelState.IsValid)
             {

@@ -1,0 +1,474 @@
+/*Reset Css*/
+@import url("https://fonts.googleapis.com/css?family=Roboto|Ubuntu+Condensed&amp;display=swap");
+
+body {
+    font-family: "Roboto", sans-serif;
+    overflow-x: hidden !important;
+    padding: 0 !important;
+    background: #f3f7fb;
+}
+
+img {
+    max-width: 100%;
+}
+
+* {
+    color: #001d57;
+    outline: none !important;
+    text-decoration: none !important;
+}
+
+.clr_inhert {
+    color: inherit;
+}
+
+a {
+    color: #001d57;
+}
+
+.bg_white {
+    background: #fff;
+
+}
+
+.bg_blue {
+    background: #001d57;
+}
+
+.text-blue {
+    color: #001d57;
+}
+
+.fw_600 {
+    font-weight: 600;
+}
+
+.d_blck {
+    display: block;
+}
+
+.d_ib {
+    display: inline-block;
+}
+
+.pos_rel {
+    position: relative;
+}
+
+.pos_abs {
+    position: absolute;
+}
+
+.radius_50 {
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+}
+
+.radius_30 {
+    border-radius: 30px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+/*mobile menu*/
+.navbar-toggler {
+    padding: 0px;
+    line-height: 1;
+    border: 0px;
+    border-radius: 0px;
+    margin-right: 12px;
+    color: #fff !important;
+}
+
+.navbar-toggler .navbar-toggler-bar {
+    border-radius: 0px;
+    height: 3px;
+    margin: 0 auto;
+    background: #001d57 !important;
+}
+
+/*Home page*/
+#header {
+    z-index: 100000;
+}
+
+#home_banner {
+    width: 100%;
+    min-height: 700px;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-top: -100px;
+    margin-top: -70px;
+}
+
+/*Service Section*/
+#services {
+    margin: -200px auto 60px
+}
+
+#services .container {
+    padding: 25px;
+    background: #fff;
+    box-shadow: 0px 0px 10px 0px #b3dff1;
+    border-radius: 10px;
+}
+
+#services .sec_single {
+    padding: 15px;
+    background: #fff;
+    box-shadow: 0px 0px 10px 0px #a3a3a3;
+    border-radius: 10px;
+}
+
+#services .sec_single .view_all_btn {
+    font-size: 16px;
+    text-decoration: underline !important;
+    color: #001d57 !important;
+    cursor: pointer
+}
+
+#services .sec_single .view_all_btn .less {
+    display: none;
+}
+
+#services .sec_single .view_all_btn:hover {
+    opacity: 0.8;
+}
+
+#services .sec_single .single_item h4 {
+    font-size: 17px;
+    font-weight: 600;
+}
+
+#services .sec_single .uni_logo {
+    max-width: 200px;
+    padding: 10px;
+    box-shadow: 0px 0px 3px 3px #d3d3d3;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    transition: all 0.4s linear
+}
+
+#services .sec_single a {
+    cursor: pointer;
+}
+
+#services .sec_single .single_item:hover .uni_logo {
+    transform: scale(1.06)
+}
+
+.ad_area .ad_img {
+    box-shadow: 0px 0px 10px 0px #a3a3a3;
+    border-radius: 10px;
+}
+
+#services .single_item_details {
+    box-shadow: 0px 4px 10px 0px #7786e6;
+    border-radius: 10px;
+    padding: 15px 10px;
+    cursor: pointer;
+    transition: all 0.4s linear
+}
+
+#services .single_item_details:hover {
+    box-shadow: 0px 0px 20px 0px #a3a3a3;
+    transform: scale(1.01)
+}
+
+#services .single_item_details a {
+    display: block;
+    cursor: pointer;
+}
+
+#services .single_item_details a:hover {
+    opacity: 0.8;
+}
+
+#services .single_item_details p {
+    font-size: 16px;
+    color: #575757
+}
+
+#services .single_item_details p span {
+    color: inherit;
+    color: #575757
+}
+
+.single_uni_data p {
+    font-size: 17px;
+    margin: 0 auto;
+    max-width: 1000px;
+}
+
+.single_uni_data .logo_section p:nth-last-child(1) {
+    padding-bottom: 20px;
+    border-bottom: 2px solid #d3d3d3;
+}
+
+.single_uni_data .logo_section .back_btn {
+    font-size: 20px;
+    font-weight: 600;
+    color: #001d57;
+    left: 50px;
+    top: 135px;
+    cursor: pointer
+}
+
+.single_uni_data {
+    transform: translate(0px, -140px);
+}
+
+.single_uni_data .logo_section .uni_loggo {
+    box-shadow: 0px 0px 3px 3px #d3d3d3;
+    border-radius: 10px;
+    background: #fff;
+    padding: 10px 15px;
+
+}
+
+.w_1000 {
+    max-width: 1000px
+}
+
+.single_uni_data .label {
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.single_uni_data .btn_user_action {
+    background: #001d57;
+    color: #fff !important;
+    font-size: 17px;
+    font-weight: 600;
+    display: block;
+    min-width: 300px;
+    max-width: 360px;
+    text-align: center;
+    padding: 10px;
+    margin: 15px 0px 15px auto;
+    border-radius: 2px;
+}
+
+.single_uni_data .btn_user_action:hover {
+    opacity: 0.8;
+}
+
+/*About Page*/
+.about_banner,
+.uni_banner,
+.profile_banner,
+.login_section {
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+    padding: 140px 0;
+}
+
+.apply_banner {
+    padding: 240px 0px;
+}
+
+.about_banner h1,
+.about_banner h2 {
+    font-weight: 600;
+    color: #ddd;
+    margin: 0;
+    line-height: 1.1;
+}
+
+.intro_section,
+.creators_section,
+.information_section,
+.contact_section,
+.uni_list_section,
+.profile-content {
+    padding: 60px 0px;
+}
+
+.intro_section h2 {
+    font-size: 32px
+}
+
+.intro_section p {
+    font-size: 16px;
+}
+
+.creators_section .card .card-description,
+.contact_section .form_desc {
+    color: #444;
+    font-size: 16px;
+}
+
+.creators_section .btn-just-icon i {
+    color: inherit
+}
+
+/*Contact page*/
+
+.contact_section .btn_Submit,
+.profile-content .btn_submit,
+.login_section .btn_submit,
+.btn_send_data {
+    font-size: 16px;
+    font-weight: 600;
+    padding: 17px;
+    line-height: 1;
+    background: #001d57 !important;
+    border: 0px;
+    max-width: 300px;
+    min-width: 200px;
+    margin: 0px auto
+}
+
+.contact_section .btn_Submit:hover,
+.profile-content .btn_submit:hover,
+.login_section .btn_submit:hover,
+.btn_send_data:hover {
+    opacity: 0.8;
+}
+
+.profile-content .profile_btn {
+    display: inline-block;
+    min-width: 250px padding: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    margin: 5px;
+}
+
+.profile-content .profile_btn i {
+    color: inherit;
+}
+
+.profile-content .profile_btn:hover,
+.profile-content .profile_btn:focus,
+.profile-content .profile_btn:focus-within {
+    background: #001d57 !important;
+    color: #fff !important;
+    border-color: #001d57 !important;
+}
+
+.login_section .form-group {
+    margin-bottom: 20px;
+}
+
+.login_section .form-group label,
+.login_section .reset_link {
+    font-size: 16px;
+    margin: 0;
+}
+
+.login_section .reset_link:hover {
+    color: #001d57;
+}
+
+.policy_banner {
+    background: #ddd;
+    border-bottom: 3px solid #001d57;
+    padding: 50px 0px;
+
+}
+
+.policy_banner h1 {
+    margin: 0;
+    line-height: 1;
+    font-weight: 600;
+    font-size: 40px;
+}
+
+.policy_content {
+    padding: 60px 0;
+}
+
+.policy_content p {
+    font-size: 16px;
+    line-height: 1.4;
+    margin: 0px auto 10px;
+    color: #333;
+}
+
+.policy_content ul {
+    font-size: 16px;
+    margin: 5px auto 5px 20px;
+    color: #333;
+    list-style: circle;
+}
+
+.policy_content ul li {
+    font-size: 16px;
+    line-height: 1.4;
+    color: #333;
+}
+
+.policy_content h4 {
+    font-size: 20px;
+    line-height: 1.1;
+    font-weight: 600;
+    margin: 15px 0px 0px;
+}
+
+/*Faq page*/
+#faq_content #accordion .panel-heading {
+    background: transparent;
+    box-shadow: 0px 2px 5px 0px #aaa;
+    border-radius: 0px;
+    line-height: 1;
+}
+
+#faq_content #accordion .panel-heading h4 {
+    margin: 0px 0px 15px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+#faq_content #accordion .panel-heading h4 a {
+    cursor: pointer;
+    padding: 15px;
+    color: #001d57 !important;
+    background: #ddd !important;
+}
+
+#faq_content #accordion .panel-heading h4 a:hover {
+    background: #001d57 !important;
+    color: #ddd !important;
+}
+
+#faq_content #accordion .right-arrow.pull-right {
+    float: right;
+    margin: 8px 10px 0px 0px;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 1;
+}
+
+#faq_content #accordion .panel {
+    border: 0px
+}
+
+#faq_content #accordion .panel-body {
+    padding: 15px;
+}
+
+#apply_section .btn.btn-outline-default.btn-file.btn-round {
+    color: #001d57 border-color: #001d57 !important;
+}
+
+#apply_section .btn.btn-outline-default.btn-file.btn-round:hover {
+    background: #001d57 !important;
+    color: #fff !important
+}
+
+#apply_section .btn.btn-outline-default.btn-file.btn-round:hover span {
+    color: #fff !important
+}
+
+#apply_section label {
+    margin: 0;
+}
