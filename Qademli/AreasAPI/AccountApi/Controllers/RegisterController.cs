@@ -20,7 +20,7 @@ namespace Qademli.AreasAPI.AccountApi.Controllers
         // POST: api/Register
         [AllowAnonymous]
         [HttpPost]
-        public async Task<ActionResult<User>> PostUser(Register creds)
+        public async Task<ActionResult<User>> PostUser([FromForm]Register creds)
         {
             var checkUser = _context.User.Any(x => x.Email == creds.Email);
             if (checkUser)

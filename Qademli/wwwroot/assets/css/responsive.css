@@ -1,0 +1,66 @@
+/*Media Queries*/
+@media only screen and (max-width: 767px) {
+    .footer .links {
+        display: block
+    }
+
+    .form_subscription .form-control {
+        max-width: 80%
+    }
+
+    .footer h4 {
+        margin: 20px 0px 10px;
+    }
+
+    .about_banner,
+    .uni_banner,
+    .profile_banner,
+    .login_section {
+        padding: 70px 0
+    }
+
+    #home_banner {
+        min-height: 300px;
+    }
+
+    #services {
+        margin-top: 0;
+    }
+
+    #services .container {
+        padding: 15px;
+    }
+
+    #services .sec_single .view_all_btn {
+        position: relative;
+        top: -28px;
+    }
+
+    #services .sec_single .single_item {
+        margin-bottom: 25px;
+    }
+
+    #services .sec_single .col-md-4.text-right {
+        height: 0;
+    }
+
+    #services .single_item_details {
+        text-align: center;
+        margin-bottom: 15px !important;
+    }
+    #services .single_item_details h4{
+        margin-bottom: 5px !important;
+    }
+    .single_uni_data .logo_section .back_btn{
+        left: 5px;
+    }
+    .single_uni_data .btn_user_action{
+        min-width: 250px;
+        max-width: 100%;
+        margin: 0 auto 15px;
+        text-align: center;
+    }
+    .card-register{
+        padding: 50px 20px;
+    }
+}

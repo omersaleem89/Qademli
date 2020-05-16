@@ -36,4 +36,31 @@
     <Folder Include="wwwroot\Uploads\UserVisaDetail\Passport\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="wwwroot\assets\demo\docs.min.js" />
+    <None Include="wwwroot\assets\demo\jquery.sharrre.js" />
+    <None Include="wwwroot\assets\demo\src\application.js" />
+    <None Include="wwwroot\assets\demo\vendor\anchor.min.js" />
+    <None Include="wwwroot\assets\demo\vendor\clipboard.min.js" />
+    <None Include="wwwroot\assets\demo\vendor\holder.min.js" />
+    <None Include="wwwroot\assets\demo\vertical-nav.js" />
+    <None Include="wwwroot\assets\fonts\nucleo-icons.woff2" />
+    <None Include="wwwroot\assets\js\core\bootstrap.min.js" />
+    <None Include="wwwroot\assets\js\core\jquery.min.js" />
+    <None Include="wwwroot\assets\js\core\popper.min.js" />
+    <None Include="wwwroot\assets\js\custom.js" />
+    <None Include="wwwroot\assets\js\paper-kit.mindc68.js" />
+    <None Include="wwwroot\assets\js\plugins\bootstrap-datetimepicker.js" />
+    <None Include="wwwroot\assets\js\plugins\bootstrap-selectpicker.js" />
+    <None Include="wwwroot\assets\js\plugins\bootstrap-switch.js" />
+    <None Include="wwwroot\assets\js\plugins\bootstrap-tagsinput.js" />
+    <None Include="wwwroot\assets\js\plugins\jasny-bootstrap.min.js" />
+    <None Include="wwwroot\assets\js\plugins\moment.min.js" />
+    <None Include="wwwroot\assets\js\plugins\nouislider.min.js" />
+    <None Include="wwwroot\assets\js\plugins\photo_swipe\init-gallery.js" />
+    <None Include="wwwroot\assets\js\plugins\photo_swipe\photoswipe-ui-default.min.js" />
+    <None Include="wwwroot\assets\js\plugins\photo_swipe\photoswipe.min.js" />
+    <None Include="wwwroot\assets\js\plugins\presentation-page\main.js" />
+  </ItemGroup>
+
 </Project>
