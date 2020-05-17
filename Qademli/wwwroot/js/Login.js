@@ -54,10 +54,10 @@
 
             if (xhr.status === 200) {
                 var res = JSON.parse(data);
-                localStorage.setItem("token", res.token);
-                var role = parseJwt(res.token)["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"];
+                localStorage.setItem("token", res.Token);
+                var role = parseJwt(res.Token)["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"];
                 if (role == "Admin")
-                    window.location.replace('/Admin/Dashboard/Dashboard');
+                    window.location.replace('/Admin/Dashboard/Goal');
                 else
                     window.location.replace('/User/Home/Index');
                 // console.log(role);

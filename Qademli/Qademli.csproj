@@ -27,6 +27,7 @@
 
   <ItemGroup>
     <Folder Include="Utility\" />
+    <Folder Include="wwwroot\Uploads\Goal\" />
     <Folder Include="wwwroot\Uploads\UserEducationDetail\HighSchoolDegree\" />
     <Folder Include="wwwroot\Uploads\UserEducationDetail\MinistryofHigherEducationDoc\" />
     <Folder Include="wwwroot\Uploads\UserEducationDetail\FinancialSupport\" />

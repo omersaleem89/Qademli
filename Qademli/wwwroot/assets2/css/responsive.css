@@ -1,0 +1,52 @@
+/*Media Queries*/
+@media only screen and (max-width: 767px) {
+    .top_bar_wrape #sidebar_toggler, .close_menu{
+    display: inline !important;
+}
+    .data_wrap .search_form .form-group label{
+        min-width: 75px    ;
+    }
+    .data_wrap .search_form .form-group .form-control{
+        max-width: 230px
+    }
+    .data_wrap .search_form .form-group .btn_submit{
+        padding: 8px;
+        max-width: 150px;
+        display: block;
+        margin: 10px auto;
+    }
+    .table-responsive{
+        margin-bottom: 10px !important;
+    }
+    .data_wrap .data_tbl tr td{
+        font-size: 13px
+    }
+    .custom_pagination, .permit_list{
+        text-align: center;
+    }
+    .my_custom_model .modal-dialog{
+        margin: 60px 0px;
+    }
+    .btn_coll{
+        text-align: center !important;
+        padding: 12px 0px;
+    }
+    .btn_coll a{
+        top: 0;
+    }
+    .visa_section .permit_list li{
+        margin: 5px;
+    }
+    .data_wrap .data_tbl .action_list li{
+        margin: 1.5px;
+    }
+    .customer_section h4{
+        margin-bottom: 10px !important;
+    }
+    #sidebar_panel .sidebar_nav{
+        min-height: 300px;
+    }  
+    #sidebar_panel .sidebar_nav li:nth-last-child(1){
+        position: relative;
+    }
+}

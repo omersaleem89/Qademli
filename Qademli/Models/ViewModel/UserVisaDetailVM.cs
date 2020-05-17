@@ -27,19 +27,19 @@ namespace Qademli.Models.ViewModel
             var ext4 = Path.GetExtension(obj.VisaPermit.FileName);
             if ((obj.Passport != null && permittedExtensions.Contains(ext1)))
             {
-                userVisaDetail.Passport = ImageHelper.UploadImageFile("wwwroot/Uploads/UserVisaDetail/Passport", obj.Passport);
+                userVisaDetail.Passport = ImageHelper.UploadImageFile(_hostEnvironment, "wwwroot/Uploads/UserVisaDetail/Passport", obj.Passport);
             }
             if ((obj.Recommendations != null && permittedExtensions.Contains(ext2)))
             {
-                userVisaDetail.Recommendations = ImageHelper.UploadImageFile("wwwroot/Uploads/UserVisaDetail/Recommendations", obj.Recommendations);
+                userVisaDetail.Recommendations = ImageHelper.UploadImageFile(_hostEnvironment, "wwwroot/Uploads/UserVisaDetail/Recommendations", obj.Recommendations);
             }
             if ((obj.I20Doc != null && permittedExtensions.Contains(ext3)))
             {
-                userVisaDetail.I20Doc = ImageHelper.UploadImageFile("wwwroot/Uploads/UserVisaDetail/I20Doc", obj.I20Doc);
+                userVisaDetail.I20Doc = ImageHelper.UploadImageFile(_hostEnvironment, "wwwroot/Uploads/UserVisaDetail/I20Doc", obj.I20Doc);
             }
             if ((obj.VisaPermit != null && permittedExtensions.Contains(ext4)))
             {
-                userVisaDetail.VisaPermit = ImageHelper.UploadImageFile("wwwroot/Uploads/UserVisaDetail/VisaPermit", obj.VisaPermit);
+                userVisaDetail.VisaPermit = ImageHelper.UploadImageFile(_hostEnvironment, "wwwroot/Uploads/UserVisaDetail/VisaPermit", obj.VisaPermit);
             }
             
             userVisaDetail.UserID = obj.UserID;
@@ -72,7 +72,7 @@ namespace Qademli.Models.ViewModel
                 if (permittedExtensions.Contains(ext))
                 {
                     ImageHelper.DeleteImage(_hostEnvironment, @"Uploads\UserVisaDetail\Passport", userVisaDetail.Passport.Replace("/Uploads/UserVisaDetail/Passport/", ""));
-                    userVisaDetail.Passport = ImageHelper.UploadImageFile("wwwroot/Uploads/UserVisaDetail/Passport", obj.Passport);
+                    userVisaDetail.Passport = ImageHelper.UploadImageFile(_hostEnvironment, "wwwroot/Uploads/UserVisaDetail/Passport", obj.Passport);
                 }
             }
             if (obj.Recommendations != null)
@@ -81,7 +81,7 @@ namespace Qademli.Models.ViewModel
                 if (permittedExtensions.Contains(ext))
                 {
                     ImageHelper.DeleteImage(_hostEnvironment, @"Uploads\UserVisaDetail\Recommendations", userVisaDetail.Recommendations.Replace("/Uploads/UserVisaDetail/Recommendations/", ""));
-                    userVisaDetail.Recommendations = ImageHelper.UploadImageFile("wwwroot/Uploads/UserVisaDetail/Recommendations", obj.Recommendations);
+                    userVisaDetail.Recommendations = ImageHelper.UploadImageFile(_hostEnvironment, "wwwroot/Uploads/UserVisaDetail/Recommendations", obj.Recommendations);
                 }
             }
             if (obj.I20Doc != null)
@@ -90,7 +90,7 @@ namespace Qademli.Models.ViewModel
                 if (permittedExtensions.Contains(ext))
                 {
                     ImageHelper.DeleteImage(_hostEnvironment, @"Uploads\UserVisaDetail\I20Doc", userVisaDetail.I20Doc.Replace("/Uploads/UserVisaDetail/I20Doc/", ""));
-                    userVisaDetail.I20Doc = ImageHelper.UploadImageFile("wwwroot/Uploads/UserVisaDetail/I20Doc", obj.I20Doc);
+                    userVisaDetail.I20Doc = ImageHelper.UploadImageFile(_hostEnvironment, "wwwroot/Uploads/UserVisaDetail/I20Doc", obj.I20Doc);
                 }
             }
             if (obj.VisaPermit != null)
@@ -99,7 +99,7 @@ namespace Qademli.Models.ViewModel
                 if (permittedExtensions.Contains(ext))
                 {
                     ImageHelper.DeleteImage(_hostEnvironment, @"Uploads\UserVisaDetail\VisaPermit", userVisaDetail.VisaPermit.Replace("/Uploads/UserVisaDetail/VisaPermit/", ""));
-                    userVisaDetail.VisaPermit = ImageHelper.UploadImageFile("wwwroot/Uploads/UserVisaDetail/VisaPermit", obj.VisaPermit);
+                    userVisaDetail.VisaPermit = ImageHelper.UploadImageFile(_hostEnvironment, "wwwroot/Uploads/UserVisaDetail/VisaPermit", obj.VisaPermit);
                 }
             }
             return userVisaDetail;

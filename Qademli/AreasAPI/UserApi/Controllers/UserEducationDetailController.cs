@@ -93,7 +93,7 @@ namespace Qademli.AreasAPI.UserApi.Controllers
             {
                 return NotFound();
             }
-
+            viewModel.Delete(userEducationDetail);
             _context.UserEducationDetail.Remove(userEducationDetail);
             await _context.SaveChangesAsync();
 

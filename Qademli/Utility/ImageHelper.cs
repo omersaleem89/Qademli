@@ -7,13 +7,14 @@ namespace Qademli.Utility
 {
     public static class ImageHelper
     {
-        public static string UploadImageFile(string path, IFormFile file)
+        public static string UploadImageFile(IWebHostEnvironment hostEnvironment, string path, IFormFile file)
         {
             var fileToSave = Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);
-            var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), path, fileToSave);
+            var pathToSave = Path.Combine(hostEnvironment.ContentRootPath, path, fileToSave);
+           // var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), path, fileToSave);
             using (var stream = new FileStream(pathToSave, FileMode.Create))
             {
-                file.CopyToAsync(stream);
+                file.CopyTo(stream);
             }
             return path.Replace("wwwroot","") + "/" + fileToSave;
         }

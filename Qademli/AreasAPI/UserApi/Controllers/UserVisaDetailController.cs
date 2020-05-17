@@ -103,10 +103,10 @@ namespace Qademli.AreasAPI.UserApi.Controllers
                     return NotFound();
                 UserVisaDetail userVisaDetail = new UserVisaDetail();
                 userVisaDetail.UserID = obj.UserID;
-                userVisaDetail.Passport = ImageHelper.UploadImageFile("wwwroot/Uploads/UserVisaDetail/Passport", obj.Passport);
-                userVisaDetail.Recommendations = ImageHelper.UploadImageFile("wwwroot/Uploads/UserVisaDetail/Recommendations", obj.Recommendations);
-                userVisaDetail.I20Doc = ImageHelper.UploadImageFile("wwwroot/Uploads/UserVisaDetail/I20Doc", obj.I20Doc);
-                userVisaDetail.VisaPermit = ImageHelper.UploadImageFile("wwwroot/Uploads/UserVisaDetail/VisaPermit", obj.VisaPermit);
+                userVisaDetail.Passport = ImageHelper.UploadImageFile(_hostEnvironment,"wwwroot/Uploads/UserVisaDetail/Passport", obj.Passport);
+                userVisaDetail.Recommendations = ImageHelper.UploadImageFile(_hostEnvironment, "wwwroot/Uploads/UserVisaDetail/Recommendations", obj.Recommendations);
+                userVisaDetail.I20Doc = ImageHelper.UploadImageFile(_hostEnvironment, "wwwroot/Uploads/UserVisaDetail/I20Doc", obj.I20Doc);
+                userVisaDetail.VisaPermit = ImageHelper.UploadImageFile(_hostEnvironment, "wwwroot/Uploads/UserVisaDetail/VisaPermit", obj.VisaPermit);
                 userVisaDetail.DateFrom = obj.DateFrom;
                 userVisaDetail.LastVisitToUS = obj.LastVisitToUS;
                 userVisaDetail.DateTo = obj.DateTo;
