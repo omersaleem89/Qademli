@@ -4,5 +4,60 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h1>Application</h1>
+<div class="row mb-3">
+    <div class="col-md-4 mt-auto mb-auto">
+        <h3>Application</h3>
+    </div>
+</div>
+<div class="data_wrap bg_white">
+    <div class="table-responsive">
+        <table class="table data_tbl">
+            <thead>
+                <tr>
+                    <th scope="col" class="align-middle text-center">#</th>
+                    <th scope="col" class="align-middle text-center">User</th>
+                    <th scope="col" class="align-middle text-center">Topic</th>
+                    <th scope="col" class="align-middle text-center">Goal</th>
+                    <th scope="col" class="align-middle text-center">Comment</th>
+                    <th scope="col" class="align-middle text-center">Date</th>
+                    <th scope="col" class="align-middle text-center">Fee</th>
+                    <th scope="col" class="align-middle text-center">Status</th>
+                    <th scope="col" class="align-middle text-center">Actions</th>
+                </tr>
+            </thead>
+            <tbody id="tBody">
+            </tbody>
+        </table>
+    </div>
+</div>
 
+<div class="modal" tabindex="-1" role="dialog" id="myModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalTitle">Update Application</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <form id="myForm">
+                    <input type="text" id="appid" hidden/>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Comment</label>
+                        <input class="form-control" id="comment" name="comment"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Status</label>
+                        <select class="form-control" id="status" name="status"></select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Update</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/js/Application.js"></script>
+}

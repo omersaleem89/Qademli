@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace Qademli.Areas.Admin.Controllers
 {
@@ -15,6 +11,11 @@ namespace Qademli.Areas.Admin.Controllers
         }
 
         public IActionResult Goal()
+        {
+            return View();
+        }
+
+        public IActionResult GoalProperty()
         {
             return View();
         }

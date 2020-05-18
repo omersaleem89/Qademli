@@ -46,7 +46,7 @@ namespace Qademli.AreasAPI.AdminApi.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutGoalProperty(int id, GoalProperty goalProperty)
+        public async Task<IActionResult> PutGoalProperty(int id, [FromForm]GoalProperty goalProperty)
         {
             if (id != goalProperty.ID)
             {
@@ -78,7 +78,7 @@ namespace Qademli.AreasAPI.AdminApi.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<GoalProperty>> PostGoalProperty(GoalProperty goalProperty)
+        public async Task<ActionResult<GoalProperty>> PostGoalProperty([FromForm]GoalProperty goalProperty)
         {
             _context.GoalProperty.Add(goalProperty);
             await _context.SaveChangesAsync();
