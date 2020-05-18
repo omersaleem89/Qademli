@@ -24,15 +24,15 @@ namespace Qademli.Models.ViewModel
             var ext3 = Path.GetExtension(obj.FinancialSupport.FileName);
             if ((obj.HighSchoolDegree != null && permittedExtensions.Contains(ext1)))
             {
-                userEducationDetail.HighSchoolDegree = ImageHelper.UploadImageFile("wwwroot/Uploads/UserEducationDetail/HighSchoolDegree", obj.HighSchoolDegree);
+                userEducationDetail.HighSchoolDegree = ImageHelper.UploadImageFile(_hostEnvironment, "wwwroot/Uploads/UserEducationDetail/HighSchoolDegree", obj.HighSchoolDegree);
             }
             if ((obj.MinistryofHigherEducationDoc != null && permittedExtensions.Contains(ext2)))
             {
-                userEducationDetail.MinistryofHigherEducationDoc = ImageHelper.UploadImageFile("wwwroot/Uploads/UserEducationDetail/MinistryofHigherEducationDoc", obj.MinistryofHigherEducationDoc);
+                userEducationDetail.MinistryofHigherEducationDoc = ImageHelper.UploadImageFile(_hostEnvironment, "wwwroot/Uploads/UserEducationDetail/MinistryofHigherEducationDoc", obj.MinistryofHigherEducationDoc);
             }
             if ((obj.FinancialSupport != null && permittedExtensions.Contains(ext3)))
             {
-                userEducationDetail.FinancialSupport = ImageHelper.UploadImageFile("wwwroot/Uploads/UserEducationDetail/FinancialSupport", obj.FinancialSupport);
+                userEducationDetail.FinancialSupport = ImageHelper.UploadImageFile(_hostEnvironment, "wwwroot/Uploads/UserEducationDetail/FinancialSupport", obj.FinancialSupport);
             }
 
             userEducationDetail.UserID = obj.UserID;
@@ -56,7 +56,7 @@ namespace Qademli.Models.ViewModel
                 if (permittedExtensions.Contains(ext))
                 {
                     ImageHelper.DeleteImage(_hostEnvironment, @"Uploads\UserEducationDetail\MinistryofHigherEducationDoc", userEducationDetail.MinistryofHigherEducationDoc.Replace("/Uploads/UserEducationDetail/MinistryofHigherEducationDoc/", ""));
-                    userEducationDetail.MinistryofHigherEducationDoc = ImageHelper.UploadImageFile("wwwroot/Uploads/UserEducationDetail/MinistryofHigherEducationDoc", obj.MinistryofHigherEducationDoc);
+                    userEducationDetail.MinistryofHigherEducationDoc = ImageHelper.UploadImageFile(_hostEnvironment, "wwwroot/Uploads/UserEducationDetail/MinistryofHigherEducationDoc", obj.MinistryofHigherEducationDoc);
                 }
             }
             if (obj.FinancialSupport != null)
@@ -65,7 +65,7 @@ namespace Qademli.Models.ViewModel
                 if (permittedExtensions.Contains(ext))
                 {
                     ImageHelper.DeleteImage(_hostEnvironment, @"Uploads\UserEducationDetail\Recommendations", userEducationDetail.FinancialSupport.Replace("/Uploads/UserEducationDetail/FinancialSupport/", ""));
-                    userEducationDetail.FinancialSupport = ImageHelper.UploadImageFile("wwwroot/Uploads/UserEducationDetail/FinancialSupport", obj.FinancialSupport);
+                    userEducationDetail.FinancialSupport = ImageHelper.UploadImageFile(_hostEnvironment, "wwwroot/Uploads/UserEducationDetail/FinancialSupport", obj.FinancialSupport);
                 }
             }
             if (obj.HighSchoolDegree != null)
@@ -74,7 +74,7 @@ namespace Qademli.Models.ViewModel
                 if (permittedExtensions.Contains(ext))
                 {
                     ImageHelper.DeleteImage(_hostEnvironment, @"Uploads\UserEducationDetail\HighSchoolDegree", userEducationDetail.HighSchoolDegree.Replace("/Uploads/UserEducationDetail/HighSchoolDegree/", ""));
-                    userEducationDetail.HighSchoolDegree = ImageHelper.UploadImageFile("wwwroot/Uploads/UserEducationDetail/HighSchoolDegree", obj.HighSchoolDegree);
+                    userEducationDetail.HighSchoolDegree = ImageHelper.UploadImageFile(_hostEnvironment, "wwwroot/Uploads/UserEducationDetail/HighSchoolDegree", obj.HighSchoolDegree);
                 }
             }
 

@@ -28,11 +28,10 @@ namespace Qademli
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews().AddNewtonsoftJson().AddRazorRuntimeCompilation();
-            services.AddControllers().AddNewtonsoftJson(options =>
+            services.AddControllersWithViews().AddNewtonsoftJson(options =>
             {
                 options.SerializerSettings.ContractResolver = new DefaultContractResolver();
-            });
+            }).AddRazorRuntimeCompilation();
             services.AddRazorPages();
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
