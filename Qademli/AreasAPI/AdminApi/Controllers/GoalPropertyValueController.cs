@@ -43,13 +43,25 @@ namespace Qademli.AreasAPI.AdminApi.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutGoalPropertyValue(int id, GoalPropertyValue goalPropertyValue)
+        public async Task<IActionResult> PutGoalPropertyValue(int id, [FromForm]GoalPropertyUpsert obj)
         {
-            if (id != goalPropertyValue.ID)
+            if (id != obj.ID)
             {
                 return BadRequest();
             }
+            GoalPropertyValue goalPropertyValue = new GoalPropertyValue()
+            {
+                GoalPropertyID = obj.GoalPropertyID,
+                ID = obj.ID,
+                Name = obj.Name
+            };
 
+            _context.Entry(new GoalDetail()
+            {
+                ID = obj.GoalDetailID,
+                GoalPropertyID = obj.GoalPropertyID,
+                GoalID = obj.GoalID
+            }).State = EntityState.Modified;
             _context.Entry(goalPropertyValue).State = EntityState.Modified;
 
             try
@@ -75,8 +87,20 @@ namespace Qademli.AreasAPI.AdminApi.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<GoalPropertyValue>> PostGoalPropertyValue(GoalPropertyValue goalPropertyValue)
+        public async Task<ActionResult<GoalPropertyValue>> PostGoalPropertyValue([FromForm]GoalPropertyUpsert obj)
         {
+            var check = _context.GoalDetail.FirstOrDefault(x => x.GoalID == obj.GoalID && x.GoalPropertyID == obj.GoalPropertyID);
+            if (check == null)
+                _context.GoalDetail.Add(new GoalDetail()
+                {
+                    GoalID=obj.GoalID,
+                    GoalPropertyID = obj.GoalPropertyID
+                });
+            GoalPropertyValue goalPropertyValue = new GoalPropertyValue()
+            {
+                GoalPropertyID=obj.GoalPropertyID,
+                Name = obj.Name
+            };
             _context.GoalPropertyValue.Add(goalPropertyValue);
             await _context.SaveChangesAsync();
 
@@ -103,5 +127,13 @@ namespace Qademli.AreasAPI.AdminApi.Controllers
         {
             return _context.GoalPropertyValue.Any(e => e.ID == id);
         }
+    }
+
+    public class GoalPropertyUpsert {
+        public int ID { get; set; }
+        public int GoalPropertyID { get; set; }
+        public int GoalID { get; set; }
+        public string Name { get; set; }
+        public int GoalDetailID { get; set; }
     }
 }

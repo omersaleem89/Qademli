@@ -1,0 +1,92 @@
+﻿
+@{
+    ViewData["Title"] = ViewBag.Goal +" Properties";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="row mb-3">
+    <div class="col-md-4 mt-auto mb-auto">
+        <h3>@ViewBag.Goal Properties</h3>
+    </div>
+    <div class="d-flex justify-content-end col-md-8">
+        <button class="btn btn-primary" onclick="openModal()">Add Property</button>
+    </div>
+</div>
+<input type="text" id="goalid" data-goalid="@ViewBag.GoalID" hidden/>
+<div class="data_wrap bg_white">
+    <div class="table-responsive">
+        <table class="table data_tbl">
+            <thead>
+                <tr>
+                    <th scope="col" class="align-middle text-center">#</th>
+                    <th scope="col" class="align-middle text-center">Name</th>
+                    <th scope="col" class="align-middle text-center">Value</th>
+                    <th scope="col" class="align-middle text-center">Actions</th>
+                </tr>
+            </thead>
+            <tbody id="tBody">
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="modal" tabindex="-1" role="dialog" id="myModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalTitle">Add Property</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <form id="saveGoalForm">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Property</label>
+                        <select class="form-control" id="property" name="property"></select>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Value</label>
+                        <input type="text" class="form-control" id="value" name="value" />
+                    </div>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal" tabindex="-1" role="dialog" id="myModal2">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalTitle">Update Property</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="modalBody2">
+                <form id="editGoalForm">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal" tabindex="-1" role="dialog" id="myModal3">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 id="modalTitle3"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="modalBody3">
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/js/ViewGoalProperty.js"></script>
+}
+

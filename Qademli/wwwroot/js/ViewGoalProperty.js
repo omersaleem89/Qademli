@@ -1,12 +1,12 @@
 ﻿$(() => {
-    LoadData(localStorage.getItem("token")); 
-    LoadTopic("topic1","");
+    LoadData();
+    LoadProperty("property", "");
 });
 
-var LoadTopic = (id,topicid) => {
+var LoadProperty = (id, propertyid) => {
     $.ajax({
         type: "GET",
-        url: "/api/Topic",
+        url: "/api/GoalProperty",
         data: "{}",
         "headers": {
             "Authorization": "Bearer " + localStorage.getItem("token")
@@ -17,18 +17,19 @@ var LoadTopic = (id,topicid) => {
                 s += '<option value="' + data[i].ID + '">' + data[i].Name + '</option>';
             }
             $("#" + id).html(s);
-            $("#" + id).val(topicid);
+            $("#" + id).val(propertyid);
         }
-    });  
+    });
 }
 
-var LoadData = (token) => {
+
+var LoadData = () => {
     var settings = {
-        "url": "/api/Goal/GetGoalWithTopic",
+        "url": "/api/ViewGoalProperty/" + $('#goalid').data('goalid'),
         "method": "GET",
         "timeout": 0,
         "headers": {
-            "Authorization": "Bearer " + token
+            "Authorization": "Bearer " + localStorage.getItem("token")
         },
         error: function (jqXHR, textStatus, errorThrown) { window.location.replace('/Account/Login/Login'); }
     };
@@ -36,22 +37,22 @@ var LoadData = (token) => {
     $.ajax(settings).done(function (data, statusText, xhr) {
         if (xhr.status === 200) {
             console.log(data);
+            var count = 1;
             $('#tBody').empty();
             if (data.length > 0) {
-                $.each(data, function (index, item) {
+                $.each(data, function (index1, item1) {
+                $.each(item1.GoalPropertyValue, function (index, item) {
                     var str = `<tr>
-                                <td class="align-middle text-center">${index + 1}</td>
+                                <td class="align-middle text-center">${count++}</td>
+                                <td class="align-middle text-center">${item.GoalProperty.Name}</td>
                                 <td class="align-middle text-center">${item.Name}</td>
-                                <td class="align-middle text-center"><img src="${item.Image}" width="75" height="75"/></td>
-                                <td class="align-middle text-center">${item.TopicName}</td>
-                                <td class="align-middle text-center">${item.Fee} ${item.Currency}</td>
                                 <td class="align-middle text-center">
-                                    <button class="btn btn-primary" onclick="editModal('${item.ID}','${item.Name}','${item.TopicID}','${item.Fee}','${item.Currency}')">Edit</button>
+                                    <button class="btn btn-primary" onclick="editModal('${item.ID}','${item.GoalPropertyID}','${item1.ID}','${item.Name}')">Edit</button>
                                     <button class="btn btn-danger" onclick="deleteModal('${item.ID}','${item.Name}')">Delete</button>
-                                    <a class="btn btn-info" href="/Admin/Dashboard/ViewGoalProperty?goalId=${item.ID}&goal=${item.Name}">Properties</a>
                                 </td>
                             </tr>`;
                     $('#tBody').append(str);
+                });
                 });
 
             }
@@ -65,38 +66,27 @@ var openModal = () => {
     $('#myModal').modal('show');
 }
 
-
-
-var editModal = (id, name, topicid, fee,currency) => {
+var editModal = (id, GoalPropertyID, GoalDetailID, Name) => {
     $('#myModal2').modal('show');
     var str = `
-                <input id="goalid" value="${id}" hidden/>
+                <input id="propertyid" value="${id}" data-goaldetailid="${GoalDetailID}" hidden/>
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Topic</label>
-                        <select class="form-control" id="topic2" name="topic2"></select>
+                        <label for="exampleInputEmail1">Property</label>
+                        <select class="form-control" id="property2" name="property2"></select>
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Name</label>
-                        <input type="text" value="${name}" class="form-control" id="name2" name="name2" />
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Image</label>
-                        <input type="file" class="form-control" id="image2" name="image2" accept="image/*"/>
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Fee</label>
-                        <input type="number" value="${fee}" class="form-control" id="fee2" name="fee2">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Currency</label>
-                        <input type="text" value="${currency}" class="form-control" id="currency2" name="currency2">
+                        <label for="exampleInputEmail1">Value</label>
+                        <input type="text" class="form-control" id="value2" value="${Name}" name="value2" />
                     </div>
                     <button type="submit" class="btn btn-primary">Save</button>
                 `;
     $('#editGoalForm').html(str);
-    LoadTopic("topic2", topicid);
-    
+    LoadProperty("property2", GoalPropertyID);
+    $('#property2').prop('disabled', true);
+
 }
+
+
 
 var deleteModal = (id, name) => {
     $('#myModal3').modal('show');
@@ -106,7 +96,7 @@ var deleteModal = (id, name) => {
 
 var deleteUser = (id) => {
     var settings = {
-        "url": "/api/Goal/" + id,
+        "url": "/api/GoalPropertyValue/" + id,
         "method": "DELETE",
         "timeout": 0,
         error: function (jqXHR, textStatus, errorThrown) { window.location.replace('/Account/Login/Login'); },
@@ -117,11 +107,11 @@ var deleteUser = (id) => {
 
     $.ajax(settings).done(function (data, statusText, xhr) {
         if (xhr.status === 404) {
-            window.location.replace('/Screen/Login');
+//            window.location.replace('/Screen/Login');
 
             // console.log(data);
         } else {
-            LoadData(localStorage.getItem("token"));
+            LoadData();
             $('#myModal3').modal('hide');
         }
     });
@@ -132,33 +122,21 @@ $(() => {
     //Add Goal
     $('#myModal form').validate({
         rules: {
-            topic1: "required",
-            name1: "required",
-            image1: {
-                required: true
-            },
-            fee1: "required",
-            currency1: "required",
+            property: "required",
+            value: "required"
         },
         messages: {
-            topic1: "Choose Topic",
-            name1: "Name is required",
-            image1:{
-                required: "Image is Required"
-            },
-            fee1: "Fee is required",
-            currency1: "Currency is required",
+            property: "Choose Property",
+            value: "Value is required"
         },
         submitHandler: function (form) {
             var form = new FormData();
-            form.append("TopicID", $('#topic1').val());
-            form.append("Name", $('#name1').val());
-            form.append("Image", $('input[type=file]')[0].files[0]);
-            form.append("Fee", $('#fee1').val());
-            form.append("Currency", $('#currency1').val());
+            form.append("GoalPropertyID", $('#property').val());
+            form.append("GoalID", $('#goalid').data('goalid'));
+            form.append("Name", $('#value').val());
 
             var settings = {
-                "url": "/api/Goal",
+                "url": "/api/GoalPropertyValue",
                 "method": "POST",
                 "timeout": 0,
                 "processData": false,
@@ -172,7 +150,7 @@ $(() => {
 
             $.ajax(settings).done(function (data, statusText, xhr) {
                 if (xhr.status === 201) {
-                    LoadData(localStorage.getItem("token"));
+                    LoadData();
                     $('#myModal').modal('hide');
                     // console.log(data);
                 } else {
@@ -183,30 +161,26 @@ $(() => {
         }
     });
 
-    //Edit User
+   //Edit Property
     $('#myModal2 form').validate({
         rules: {
-            topic2: "required",
-            name2: "required",
-            fee2: "required",
-            currency2: "required",
+            property2: "required",
+            value2: "required"
         },
         messages: {
-            topic2: "Choose Topic",
-            name2: "Name is required",
-            fee2: "Fee is required",
-            currency2: "Currency is required",
+            property2: "Choose Property",
+            value2: "Value is required"
         },
         submitHandler: function (form) {
             var form = new FormData();
-            form.append("TopicID", $('#topic2').val());
-            form.append("Name", $('#name2').val());
-            form.append("Image", $('#image2')[0].files[0]);
-            form.append("Fee", $('#fee2').val());
-            form.append("Currency", $('#currency2').val());
+            form.append("GoalPropertyID", $('#property2').val());
+            form.append("GoalID", $('#goalid').data('goalid'));
+            form.append("Name", $('#value2').val());
+            form.append("ID", $('#propertyid').val());
+            form.append("GoalDetailID", $('#propertyid').data('goaldetailid'));
 
             var settings = {
-                "url": "/api/Goal/" + $('#goalid').val(),
+                "url": "/api/GoalPropertyValue/" + $('#propertyid').val(),
                 "method": "PUT",
                 "timeout": 0,
                 "processData": false,
@@ -230,4 +204,5 @@ $(() => {
 
         }
     });
+   
 })
