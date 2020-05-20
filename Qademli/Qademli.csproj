@@ -31,6 +31,9 @@
     <Folder Include="wwwroot\Uploads\UserEducationDetail\HighSchoolDegree\" />
     <Folder Include="wwwroot\Uploads\UserEducationDetail\MinistryofHigherEducationDoc\" />
     <Folder Include="wwwroot\Uploads\UserEducationDetail\FinancialSupport\" />
+    <Folder Include="wwwroot\Uploads\UserPersonalDetail\IdentificationDoc\" />
+    <Folder Include="wwwroot\Uploads\UserPersonalDetail\CivilIDFront\" />
+    <Folder Include="wwwroot\Uploads\UserPersonalDetail\CivilIDBack\" />
     <Folder Include="wwwroot\Uploads\UserVisaDetail\I20Doc\" />
     <Folder Include="wwwroot\Uploads\UserVisaDetail\Recommendations\" />
     <Folder Include="wwwroot\Uploads\UserVisaDetail\VisaPermit\" />

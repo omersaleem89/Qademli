@@ -29,12 +29,6 @@ namespace Qademli.Utility
             context.SaveChanges();
 
 
-            // Look for any Users.
-            if (context.Topic.Any())
-            {
-                return;   // DB has been seeded
-            }
-
             var topics = new Topic[]
             {
                 new Topic{ Name="University"},
@@ -46,6 +40,18 @@ namespace Qademli.Utility
             foreach (Topic t in topics)
             {
                 context.Topic.Add(t);
+            }
+            context.SaveChanges();
+
+            var applicationStatus = new ApplicationStatus[] {
+                new ApplicationStatus{ Name="Pending"},
+                new ApplicationStatus{ Name="Completed"},
+                new ApplicationStatus{ Name="Paused"},
+                new ApplicationStatus{ Name="Disposed"}
+            };
+            foreach (ApplicationStatus s in applicationStatus)
+            {
+                context.ApplicationStatus.Add(s);
             }
             context.SaveChanges();
         }

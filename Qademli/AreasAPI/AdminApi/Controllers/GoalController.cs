@@ -36,6 +36,25 @@ namespace Qademli.AreasAPI.AdminApi.Controllers
             return await _context.Goal.ToListAsync();
         }
 
+        // GET: api/Goal/GetGoalListByTopicID
+        [HttpGet("GetGoalListByTopicID")]
+        public async Task<ActionResult<IEnumerable<dynamic>>> GetGoalListByTopicID(int id)
+        {
+            var goals = await _context.Goal.Where(x => x.TopicID == id).ToListAsync();
+            var goalList = new List<dynamic>();
+            foreach (var g in goals)
+            {
+                goalList.Add(new {
+                    g.ID,
+                    g.Image,
+                    g.Name,
+                    g.Fee,
+                    g.Currency
+                });
+            }
+            return goalList;
+        }
+
         // GET: api/Goal/GetGoalWithTopic
         [HttpGet("GetGoalWithTopic")]
         public async Task<ActionResult<IEnumerable<GoalTopic>>> GetGoalWithTopic()
@@ -58,6 +77,7 @@ namespace Qademli.AreasAPI.AdminApi.Controllers
             }
             return goalList;
         }
+
 
         // GET: api/Goal/5
         [HttpGet("{id}")]

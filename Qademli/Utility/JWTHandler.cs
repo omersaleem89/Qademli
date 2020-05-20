@@ -1,5 +1,6 @@
 ﻿
 using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Qademli.Models.DatabaseModel;
 using System;
@@ -35,6 +36,33 @@ namespace Qademli
                   signingCredentials: credentials);
 
             return new JwtSecurityTokenHandler().WriteToken(token);
+        }
+
+        public ClaimsPrincipal ValidateToken(string jwtToken)
+        {
+            IdentityModelEventSource.ShowPII = true;
+
+            SecurityToken validatedToken;
+            TokenValidationParameters validationParameters = new TokenValidationParameters();
+
+            validationParameters.ValidateLifetime = true;
+            validationParameters.ValidateIssuer = true;
+            validationParameters.ValidateAudience = true;
+            validationParameters.ValidateIssuerSigningKey = true;
+            validationParameters.ValidAudience = _config["Jwt:Issuer"];
+            validationParameters.ValidIssuer = _config["Jwt:Issuer"];
+            validationParameters.IssuerSigningKey = new Microsoft.IdentityModel.Tokens.SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));
+            try
+            {
+                ClaimsPrincipal principal = new JwtSecurityTokenHandler().ValidateToken(jwtToken, validationParameters, out validatedToken);
+                return principal;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+
+
         }
     }
 }

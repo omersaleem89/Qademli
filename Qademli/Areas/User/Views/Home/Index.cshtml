@@ -14,7 +14,7 @@
                           <h3 class="description">Welcome to Qademli</h3>
                 -->
 
-            </div> 
+            </div>
         </div>
     </div>
 </div>
@@ -32,7 +32,7 @@
                             <a class="view_all_btn view_more_uni"><span class="more">View All</span><span class="less">View Less</span></a>
                         </div>
                     </div>
-                    <div class="row main_row text-center mb-4">
+                    <div class="row main_row text-center mb-4" id="uniList">
                         <div class="col-md-3">
                             <div class="single_item">
                                 <a class="text-blue" id="view_detial1">
@@ -338,7 +338,7 @@
                             <a class="view_all_btn view_more_lang_centers"><span class="more">View All</span><span class="less">View Less</span></a>
                         </div>
                     </div>
-                    <div class="row text-center mb-4">
+                    <div class="row text-center mb-4" id="languageList">
                         <div class="col-md-3">
                             <div class="single_item">
                                 <a href="#" class="text-blue">
@@ -480,7 +480,7 @@
                 <!--Ad Area-->
                 <div class="row ad_area">
                     <div class="col-md-8 mx-auto">
-                        <img src="assets/img/ad.png" alt="ad" class="img-responsive ad_img">
+                        <img src="~/assets/img/ad.png" alt="ad" class="img-responsive ad_img">
                     </div>
                 </div>
 
@@ -490,3 +490,7 @@
 </section>
 </main>
 
+@section Scripts{
+    <script src="~/assets/js/core/jquery.min.js"></script>
+    <script src="~/js/Index.js"></script>
+}

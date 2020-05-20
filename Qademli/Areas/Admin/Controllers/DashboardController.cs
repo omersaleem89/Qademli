@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Qademli.Utility;
 
 namespace Qademli.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [CustomAuthorize(SD.Admin)]
     public class DashboardController : Controller
     {
         public IActionResult Application()

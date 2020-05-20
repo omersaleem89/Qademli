@@ -13,5 +13,10 @@ namespace Qademli.Areas.Account.Controllers
         {
             return View();
         }
+
+        public IActionResult Unauthorize()
+        {
+            return View();
+        }
     }
 }
