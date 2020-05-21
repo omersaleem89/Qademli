@@ -5,16 +5,37 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20200521022124_AddMotherIDBackCol.cs" />
+    <Compile Remove="Migrations\20200521022124_AddMotherIDBackCol.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.0.3" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.0.3" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.0.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.0.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.0.3">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.0.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.0.0" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.5.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\Uploads\UserFamilyDetail\FatherCivilIDFront\" />
+    <Folder Include="wwwroot\Uploads\UserFamilyDetail\FatherCivilIDBack\" />
+    <Folder Include="wwwroot\Uploads\UserFamilyDetail\MotherCivilIDFront\" />
+    <Folder Include="wwwroot\Uploads\UserFamilyDetail\CompanionPassport\" />
+    <Folder Include="wwwroot\Uploads\UserFamilyDetail\CompanionI20\" />
+    <Folder Include="wwwroot\Uploads\UserFamilyDetail\MotherCivilIDBack\" />
+    <Folder Include="wwwroot\Uploads\UserFamilyDetail\SpousePassport\" />
+    <Folder Include="wwwroot\Uploads\UserFamilyDetail\SpouseCivilIDBack\" />
+    <Folder Include="wwwroot\Uploads\UserFamilyDetail\SpouseCivilIDFront\" />
+    <Folder Include="wwwroot\Uploads\UserFamilyDetail\ParentPassport\" />
   </ItemGroup>
 
 </Project>

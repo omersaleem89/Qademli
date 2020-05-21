@@ -308,6 +308,9 @@ namespace Qademli.Migrations
                     b.Property<int>("MonthlySalary")
                         .HasColumnType("int");
 
+                    b.Property<string>("MotherCivilIDBack")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("MotherCivilIDFront")
                         .HasColumnType("nvarchar(max)");
 

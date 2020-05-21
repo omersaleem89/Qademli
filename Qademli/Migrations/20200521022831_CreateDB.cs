@@ -145,6 +145,7 @@ namespace Qademli.Migrations
                     FatherCivilIDFront = table.Column<string>(nullable: true),
                     FatherCivilIDBack = table.Column<string>(nullable: true),
                     MotherCivilIDFront = table.Column<string>(nullable: true),
+                    MotherCivilIDBack = table.Column<string>(nullable: true),
                     SpouseCivilIDFront = table.Column<string>(nullable: true),
                     SpouseCivilIDBack = table.Column<string>(nullable: true),
                     SpousePassport = table.Column<string>(nullable: true),

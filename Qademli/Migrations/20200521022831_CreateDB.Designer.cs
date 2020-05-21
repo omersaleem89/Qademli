@@ -10,7 +10,7 @@ using Qademli;
 namespace Qademli.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    [Migration("20200520105849_CreateDB")]
+    [Migration("20200521022831_CreateDB")]
     partial class CreateDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -309,6 +309,9 @@ namespace Qademli.Migrations
 
                     b.Property<int>("MonthlySalary")
                         .HasColumnType("int");
+
+                    b.Property<string>("MotherCivilIDBack")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("MotherCivilIDFront")
                         .HasColumnType("nvarchar(max)");

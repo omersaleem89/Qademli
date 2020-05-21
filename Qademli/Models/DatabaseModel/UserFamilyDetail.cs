@@ -13,6 +13,7 @@ namespace Qademli.Models.DatabaseModel
         public string FatherCivilIDFront { get; set; }
         public string FatherCivilIDBack { get; set; }
         public string MotherCivilIDFront { get; set; }
+        public string MotherCivilIDBack { get; set; }
         public string SpouseCivilIDFront { get; set; }
         public string SpouseCivilIDBack { get; set; }
         public string SpousePassport { get; set; }
